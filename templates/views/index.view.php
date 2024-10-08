@@ -44,9 +44,6 @@ require_once __DIR__ . '/../inicio.part.php';
       <!-- Navigation Table Content -->
       <div class="tab-content">
 
-
-
-
         <!-- First Category pictures -->
 
         <?php

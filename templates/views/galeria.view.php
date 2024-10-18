@@ -49,6 +49,16 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
+                        <label class="label-control">Categoria</label>
+                        <select class="form-control" name="categoria">
+                            <?php foreach ($categorias as $categoria) : ?>
+                                <option value="<?= $categoria->getId() ?>"><?= $categoria->getNombre() ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
                         <label class="label-control">Titulo</label>
                         <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?> ">
                         <label class="label-control">Descripción</label>
@@ -64,15 +74,16 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Imagen</th>
+                            <th scope=”col”>Categoria</th>
                             <th scope="col">Visualizaciones</th>
                             <th scope="col">Likes</th>
                             <th scope="col">Descargas</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($imagenes as $imagen) : 
-                            $a=5;
-                            ?>
+                        <?php foreach ($imagenes as $imagen) :
+                            $a = 5;
+                        ?>
                             <tr>
                                 <th scope="row"><?= $imagen->getNombre() ?></th>
                                 <td>
@@ -81,6 +92,7 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
                                         title="<?= $imagen->getDescripcion() ?>"
                                         width="100px">
                                 </td>
+                                <td><?= $imagen->getCategoria() ?></td>
                                 <td><?= $imagen->getNumVisualizaciones() ?></td>
                                 <td><?= $imagen->getNumLikes() ?></td>
                                 <td><?= $imagen->getNumDownloads() ?></td>

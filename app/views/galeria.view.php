@@ -1,6 +1,6 @@
 <?php
-require_once '/xampp/htdocs/proyectos/dwes.local/templates/inicio.part.php';
-require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
+require_once __DIR__ . '/../controllers/inicio.part.php';
+require_once __DIR__ . '/../controllers/navegacion.part.php';
 ?>
 <div class="hero hero-inner">
     <div class="container">
@@ -39,8 +39,7 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
             <?php endif; ?>
             <!-- Formulario que permite subir una imagen con su descripción -->
             <!-- Hay que indicar OBLIGATORIAMENTE enctype="multipart/form-data" para enviar ficheros al servidor -->
-            <form clas="form-horizontal" action="<?= $_SERVER['PHP_SELF'] ?>" method="post"
-                enctype="multipart/form-data">
+            <form clas="form-horizontal" action="galeria/nueva" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Imagen</label>
@@ -60,7 +59,7 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Titulo</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?> ">
+                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo="" ?> ">
                         <label class="label-control">Descripción</label>
                         <textarea class="form-control" name="descripcion"><?= $descripcion ?></textarea>
                         <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
@@ -105,5 +104,5 @@ require_once '/xampp/htdocs/proyectos/dwes.local/templates/navegacion.part.php';
     </div>
 </div>
 <?php
-require_once __DIR__ . '/../fin.part.php';
+require_once __DIR__ . '/../controllers/fin.part.php';
 ?>

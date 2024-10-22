@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../src/entity/imagen.class.php';
-require_once __DIR__ . '/../src/entity/asociados.class.php';
+require_once __DIR__ . '/../../src/entity/imagen.class.php';
+require_once __DIR__ . '/../../src/entity/asociados.class.php';
 
 $imagenesHome[]= new Imagen ('1.jpg','descripción imagen 1',1,456,610,130);
 $imagenesHome[]= new Imagen ('2.jpg','descripción imagen 2',1,456,610,130);
@@ -20,5 +20,5 @@ $logosAsociados[] = new Asociado('Logo2', 'Descripción logo 2', 'log2.jpg', '/p
 $logosAsociados[] = new Asociado('Logo3', 'Descripción logo 3', 'log3.jpg', '/public/images/asociados/log3.jpg');
 
 
-require_once __DIR__ . '/views/index.view.php';
+require __DIR__ . '/../views/index.view.php';
 require_once __DIR__ . '/indexlogos.view.part.php';

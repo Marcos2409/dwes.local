@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . '/../inicio.part.php';
+require_once __DIR__ . '/../controllers/inicio.part.php';
 
 ?>
 
 <body id="page-top">
 
   <?php
-  require_once __DIR__ . '/../navegacion.part.php';
+  require_once __DIR__ . '/../controllers/navegacion.part.php';
   ?>
 
   <!-- Principal Content Start-->
@@ -151,7 +151,7 @@ require_once __DIR__ . '/../inicio.part.php';
 
   <!-- Footer -->
   <?php
-  require_once __DIR__ . '../fin.part.php';
+  require_once __DIR__ . '../controllers/fin.part.php';
   ?>
 </body>
 

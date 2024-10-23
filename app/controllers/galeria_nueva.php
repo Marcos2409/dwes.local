@@ -25,6 +25,7 @@ try {
     $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion, $categoria);
     $imagenesRepository = new ImagenesRepository();
     $imagenesRepository->guarda($imagenGaleria);
+    App::get('logger')->add("Se ha guardado una imagen: " . $imagenGaleria->getNombre());
 } catch (FileException $fileException) {
     $errores[] = $fileException->getMessage();
 } catch (QueryException $queryException) {

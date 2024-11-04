@@ -1,39 +1,56 @@
 <?php
-require_once __DIR__ . '/../src/exceptions/AppException.php';
-require_once __DIR__ . '/../src/database/connection.class.php';
+
+namespace dwes\core;
+
+use dwes\app\exceptions\AppException;
+use dwes\core\database\Connection;
+use dwes\core\database\QueryBuilder;
+use dwes\app\repository\ImagenesRepository;
+use dwes\app\repository\CategoriaRepository;
+use dwes\app\entity\Categoria;
+use dwes\app\entity\Imagen;
+
 class App
 {
- /**
- * @var array
- */
- private static $container = [];
- /**
- * @param string $key
- * @param $value
- * @return void
- */
- public static function bind (string $key, $value)
- {
- static::$container[$key]=$value;
- }
- /**
- * @param string $key
- * @return mixed
- * @throws AppException
- */
- public static function get(string $key)
- {
- if ( !array_key_exists($key,static::$container))
- throw new AppException("No se ha encontrado la clave $key en el contenedor");
- return static::$container[$key];
- }
- /**
- * @return PDO
- */
- public static function getConnection()
- {
- if (!array_key_exists('connection', static::$container))
- static::$container['connection'] = Connection::make();
- return static::$container['connection'];
- }
+    /**
+     * @var array
+     */
+    private static $container = [];
+    /**
+     * @param string $key
+     * @param $value
+     * @return void
+     */
+    public static function bind(string $key, $value)
+    {
+        static::$container[$key] = $value;
+    }
+    /**
+     * @param string $key
+     * @return mixed
+     * @throws AppException
+     */
+    public static function get(string $key)
+    {
+        if (!array_key_exists($key, static::$container))
+            throw new AppException("No se ha encontrado la clave $key en el contenedor");
+        return static::$container[$key];
+    }
+    /**
+     * @return PDO
+     */
+    public static function getConnection()
+    {
+        if (!array_key_exists('connection', static::$container))
+            static::$container['connection'] = Connection::make();
+        return static::$container['connection'];
+    }
+
+    public static function getRepository(string $className): QueryBuilder
+    {
+        if (! array_key_exists($className, static::$container))
+            static::$container[$className] = new $className();
+
+        return static::$container[$className];
+    }
 }

@@ -157,7 +157,7 @@ require_once __DIR__ . '/../controllers/inicio.part.php';
 
   <!-- Footer -->
   <?php
-  require_once __DIR__ . '../controllers/fin.part.php';
+  require_once __DIR__ . '/../controllers/fin.part.php';
   ?>
 </body>
 

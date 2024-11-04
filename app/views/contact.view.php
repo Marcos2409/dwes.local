@@ -15,11 +15,12 @@ require_once __DIR__ . '/../controllers/inicio.part.php';
 				<h1>CONTACT US</h1>
 				<hr>
 				<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-				<form class="form-horizontal">
+				<form clas="form-horizontal" action="/contact/enviar" method="post"
+					enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="col-xs-6">
 							<label class="label-control">First Name</label>
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" name="nombre" />
 						</div>
 						<div class="col-xs-6">
 							<label class="label-control">Last Name</label>

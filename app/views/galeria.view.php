@@ -39,7 +39,7 @@ require_once __DIR__ . '/../controllers/navegacion.part.php';
             <?php endif; ?>
             <!-- Formulario que permite subir una imagen con su descripción -->
             <!-- Hay que indicar OBLIGATORIAMENTE enctype="multipart/form-data" para enviar ficheros al servidor -->
-            <form clas="form-horizontal" action="galeria/nueva" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="galeria/nueva" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Imagen</label>
@@ -59,9 +59,9 @@ require_once __DIR__ . '/../controllers/navegacion.part.php';
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Titulo</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo="" ?> ">
+                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?? '' ?>">
                         <label class="label-control">Descripción</label>
-                        <textarea class="form-control" name="descripcion"><?= $descripcion ?></textarea>
+                        <textarea class="form-control" name="descripcion"><?= $descripcion ?? '' ?></textarea>
                         <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
                     </div>
                 </div>
@@ -73,16 +73,14 @@ require_once __DIR__ . '/../controllers/navegacion.part.php';
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Imagen</th>
-                            <th scope=”col”>Categoria</th>
+                            <th scope="col">Categoria</th>
                             <th scope="col">Visualizaciones</th>
                             <th scope="col">Likes</th>
                             <th scope="col">Descargas</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($imagenes as $imagen) :
-                            $a = 5;
-                        ?>
+                        <?php foreach ($imagenes as $imagen) : ?>
                             <tr>
                                 <th scope="row"><?= $imagen->getNombre() ?></th>
                                 <td>
